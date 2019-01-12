@@ -16,14 +16,14 @@ services:
   db:
     image: mdillon/postgis:9.6-alpine
     volumes:
-    - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
     container_name: "${DB_CONTAINER_NAME:-nodejs-db}"
     environment:
-    - POSTGRES_USER=${DB_USER:-nodefactory}
-    - POSTGRES_PASSWORD=${DB_PASSWORD:-nodefactory}
-    - POSTGRES_DB=${DB_NAME:-nodefactory}
+      - POSTGRES_USER=${DB_USER:-nodefactory}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-nodefactory}
+      - POSTGRES_DB=${DB_NAME:-nodefactory}
     ports:
-    - ${DB_LOCAL_PORT:-9999}:5432
+      - ${DB_LOCAL_PORT:-9999}:5432
 volumes:
   db_data:
   node_modules:
