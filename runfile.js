@@ -17,6 +17,10 @@ function compile() {
   run('docker-compose run --rm backend npm run build');
 }
 
+function osmImport() {
+  run('osm2pgsql district-of-columbia-latest.osm.pbf -d geoinf -U geoinf -H localhost -P 9876 --password --hstore');
+}
+
 function build() {
   run('docker-compose down');
   run('docker-compose -f docker-compose-cleanup.yml down -v');
@@ -44,6 +48,7 @@ module.exports = {
   lint,
   npm,
   build,
+  osmImport,
   test,
   compile,
   dev,
