@@ -8,8 +8,8 @@ export default class StreetsController {
         return res.json(streets);
     }
 
-    public static getStreet(req: Request, res: Response): void {
-        res.json({message: "Sorry can't help you"});
+    public static async getStreet(req: Request, res: Response): Promise<any> {
+        return res.json(await streetService.wattPerKm(req.params.street));
     }
 
 }

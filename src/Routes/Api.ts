@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.get("/help", HelpController.getHelp);
 router.get("/streets", StreetsController.getStreets);
-router.get("/streets/{street}", StreetsController.getStreet);
+router.get("/streets/:street", StreetsController.getStreet);
 
 export default router;
