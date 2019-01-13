@@ -25,7 +25,7 @@ class StreetService {
     }
 
     public wattPerKm(street: string): PromiseLike<any> {
-        return this.sequelize.query("SELECT segment.name, SUM(lamp.wattage), ST_AsGeoJSON(segment.segment) as segment\n" +
+        return this.sequelize.query("SELECT segment.name, SUM(lamp.wattage), ST_AsGeoJSON(ST_Transform(segment.segment,4326)) as segment\n" +
             "FROM (SELECT name, ST_LineSubstring(road.segment, 1000.00*n/road.length,\n" +
             "                                              CASE\n" +
             "                                                WHEN 1000.00*(n+1) < road.length THEN 1000.00*(n+1)/road.length\n" +

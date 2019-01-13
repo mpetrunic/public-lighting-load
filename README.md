@@ -17,6 +17,15 @@ you change dependencies in package.json (yarn.lock).
 
 Run `npx run` to see all available commands and their description.
 
+## Imports
+
+#### Lamps
+`npx run npm import:lamps`
+
+#### Roads
+* `docker-compose up`
+* `run osmImport`
+
 ## Notice
 * make sure you update yarn.lock before building
 * use sequelize-cli local to generate migrations (because of timestamp)
